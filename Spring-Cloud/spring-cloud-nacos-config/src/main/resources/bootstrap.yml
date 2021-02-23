@@ -1,0 +1,30 @@
+net:
+  wangjifeng:
+    namespace: eea955fa-099a-43ff-984d-ff2ebf2f5091
+    group: butterflytri
+    server-addr: 127.0.0.1:8848
+server:
+  port: 8080 # 微服务应用端口
+  servlet:
+    context-path: / # 应用映射
+spring:
+  application:
+    name: nacos-config # 微服务应用名称
+  cloud:
+    nacos:
+      discovery: # 服务注册与发现功能相关配置
+        server-addr: ${net.wangjifeng.server-addr} # nacos的服务端地址
+        enabled: true # 是否启用服务注册与发现功能
+        namespace: ${net.wangjifeng.namespace} # 服务的命名空间
+        group: ${net.wangjifeng.group} # 服务的分组
+      config: # 配置与配置的自动刷新功能
+        namespace: ${net.wangjifeng.namespace} # 配置的命名空间
+        group: ${net.wangjifeng.group} # 配置的分组
+        encode: UTF-8 # 配置文件的字符集
+        refresh-enabled: true # 是否启动配置文件自动刷新，跟'@RefreshScope'效果一样，二选一即可
+        server-addr: 127.0.0.1:8848 # nacos的配置文件地址
+        file-extension: yaml # 配置文件类型
+        extension-configs: # 需要加载的配置文件的列表
+          - data-id: wangjifeng.yaml # 在nacos服务器的配置文件的data-id
+            group: ${net.wangjifeng.group} # 配置文件所在分组
+            refresh: true # 配置文件是否自动刷新

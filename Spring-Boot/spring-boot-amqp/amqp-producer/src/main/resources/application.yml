@@ -1,0 +1,34 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: producer
+  rabbitmq:
+    host: 127.0.0.1 # rabbitmq地址
+    port: 5672 # 端口号默认是5672，后端监控平台默认是15672，账户密码同下
+    username: guest # 用户名
+    password: guest # 密码
+    virtual-host: / # 主机，rabbitmq拥有主机的概念，你可以创建主机，设置不同的密码，你可以当作分组的概念去理解
+net:
+  wangjifeng:
+    amqp-def:
+      amqpDescription: 'Amqp-Producer'
+      exchangeDefs:
+        - id: 1
+          exchangeName: amqp-exchange
+          exchangeType: topic
+          durable: true
+          exchangeDescription: 'amqp-exchange'
+          queueDefs:
+            - id: 1
+              queueName: topic-one
+              durable: true
+              queueDescription: '队列1'
+              routingKey: topic-one
+            - id: 2
+              queueName: topic-two
+              durable: true
+              queueDescription: '队列2'
+              routingKey: topic-two

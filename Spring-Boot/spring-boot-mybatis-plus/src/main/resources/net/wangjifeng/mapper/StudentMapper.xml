@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.wangjifeng.mapper.StudentMapper">
+    <sql id="propertyMapper">
+        `ID` AS id,
+        `STUDENT_NAME` AS studentName,
+        `STUDENT_NO` AS studentNo,
+        `SEX` AS sex,
+        `AGE` AS age,
+        `CLASS` AS clazz
+    </sql>
+    <select id="findAll" resultType="net.wangjifeng.entity.Student">
+        SELECT
+            <include refid="propertyMapper"></include>
+        FROM
+            `t_student`
+    </select>
+    <select id="findOne" parameterType="java.lang.Long" resultType="net.wangjifeng.entity.Student">
+        SELECT
+            <include refid="propertyMapper"></include>
+        FROM
+            `t_student`
+        WHERE
+            `ID` = #{id}
+    </select>
+    <select id="findByStudentNo" parameterType="java.lang.String" resultType="net.wangjifeng.entity.Student">
+        SELECT
+            <include refid="propertyMapper"></include>
+        FROM
+            `t_student`
+        WHERE
+            `STUDENT_NO` = #{studentNo}
+    </select>
+</mapper>

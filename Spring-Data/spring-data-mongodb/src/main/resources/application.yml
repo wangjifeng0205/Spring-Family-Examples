@@ -1,0 +1,12 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /mongodb
+spring:
+  data:
+    mongodb:
+      database: student_db
+      username: mongodb
+      password: mongodb
+      host: 127.0.0.1
+      port: 27017

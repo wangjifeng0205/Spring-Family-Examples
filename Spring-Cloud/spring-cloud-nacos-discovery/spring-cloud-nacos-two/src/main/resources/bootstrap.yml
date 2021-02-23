@@ -1,0 +1,11 @@
+server:
+  port: 8081 # 微服务应用端口
+  servlet:
+    context-path: / # 应用映射
+spring:
+  application:
+    name: nacos-discovery-two # 微服务应用名称
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 # nacos的服务端地址

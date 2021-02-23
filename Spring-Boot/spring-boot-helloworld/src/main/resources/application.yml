@@ -1,0 +1,7 @@
+server:
+  port: 8080 # 应用的端口
+  servlet:
+    context-path: / # 整个应用的映射地址
+spring:
+  application:
+    name: helloworld # 应用名称

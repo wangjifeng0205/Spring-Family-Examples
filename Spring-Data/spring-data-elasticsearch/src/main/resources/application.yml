@@ -1,0 +1,7 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /es
+net:
+  wangjifeng:
+    host: 192.168.129.100:9200 # es服务端

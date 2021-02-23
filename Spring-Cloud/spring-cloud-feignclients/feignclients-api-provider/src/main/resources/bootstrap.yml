@@ -1,0 +1,11 @@
+server:
+  servlet:
+    context-path: /provider
+  port: 8080
+spring:
+  application:
+    name: api-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 # nacos的服务端地址

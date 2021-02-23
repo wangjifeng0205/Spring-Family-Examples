@@ -1,0 +1,19 @@
+net:
+  wangjifeng:
+    databaseurl-port: 127.0.0.1:3306 # 数据库端口
+    database-name: student_db # 数据库名
+server:
+  port: 8080 # 应用端口
+  servlet:
+    context-path: / # 应用映射
+spring:
+  application:
+    name: test # 应用名称
+  datasource:
+    url: jdbc:mysql://${net.wangjifeng.databaseurl-port}/${net.wangjifeng.database-name}?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+mybatis:
+  type-aliases-package: net.wangjifeng.entity # entity别名
+  mapper-locations: classpath:net/wangjifeng/mapper/*Mapper.xml # mapper映射包扫描
